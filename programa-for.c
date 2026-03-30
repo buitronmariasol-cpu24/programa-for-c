@@ -16,17 +16,32 @@ int main() {
     printf("Ingrese el valor de incremento: ");
     scanf("%d", &incremento);
 
-    // Mensaje antes de mostrar los números
+
+    // Validación: evitar incremento 0
+    if (incremento == 0) {
+        printf("Error: el incremento no puede ser 0.\n");
+        return 0; 
+    }
+
+    
     printf("Numeros generados:\n");
 
+    // Si el inicio es menor o igual al final 
+    if (inicio <= fin) {
 
-    for (int i = inicio; incremento != 0 && i <= fin; i = i + incremento) {
+        // Ciclo for que suma el incremento
+        for (int i = inicio; i <= fin; i += incremento) {
+            printf("%d\n", i); 
+        }
 
-        // Imprime el valor actual de i
-        printf("%d\n", i);
+    } else {
+
+        // Si inicio es mayor → recorrido descendente
+        for (int i = inicio; i >= fin; i -= incremento) {
+            printf("%d\n", i);
+        }
+
     }
 
     return 0;
-    }
-
-
+}
